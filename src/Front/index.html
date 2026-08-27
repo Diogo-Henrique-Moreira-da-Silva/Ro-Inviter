@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <title>Home</title>
+</head>
+<body>
+   <div class="formulario">
+        <h1>Confirmar presença</h1>
+        <form id="form-confirmacao">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+            <p>Meus 50 anos estão chegando, e essa comemoração só vai ficar completa com pessoas especiais por perto. 
+                Posso contar com você?
+            </p>
+            <div class="opcaoSim">
+                <input type="radio" id="sim" name="presenca" value="sim" required>
+                <label for="sim">Sim</label>
+             </div>
+
+            <div id="area-acompanhantes" class="escondido">
+                <div class="acompanhantes">
+                    <label for="acompanhantes">Numero de Acompanhantes:</label>
+                    <input type="number" id="acompanhantes" name="acompanhantes" min="0">
+                </div>
+            </div>
+            
+            <div class="opcaoNao">
+                <input type="radio" id="nao" name="presenca" value="nao" required>
+                <label for="nao">Não</label>
+            </div>
+            <button type="submit">Confirmar</button> 
+        </form>
+   </div> 
+</body>
+</html>
