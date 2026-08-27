@@ -27,7 +27,7 @@ const formulario =
     document.getElementById("form-confirmacao");
 
 
-formulario.addEventListener("submit", async function (event) {
+    formulario.addEventListener("submit", async function (event) {
 
     event.preventDefault();
 
@@ -46,6 +46,7 @@ formulario.addEventListener("submit", async function (event) {
 
 
     alert("Resposta enviada com sucesso!");
+    location.reload();
     
     } catch (error) {
         console.error("Erro ao enviar a resposta:", error);
