@@ -45,7 +45,7 @@ const formulario =
     );
 
 
-    alert("Resposta enviada com sucesso!");
+    alert("Resposta enviada com sucesso! Tem q manter segredo hein, se não... 💀");
     location.reload();
     
     } catch (error) {
