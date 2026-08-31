@@ -2,7 +2,7 @@ body {
     margin: 0;
     width: 100vw;
     height: 100vh;
-    background-image: url("imagens/fundo.jpg");
+    background-image: url("imagens/fundo.png");
     background-size: cover;
     background-position: center;
     display: flex;
@@ -68,3 +68,8 @@ button[type="submit"]{
     font-size: 16px;
 }
 
+@media (max-width: 700px) {
+    body {
+        background-image: url("imagens/fundoMobile.png");
+    }
+}
