@@ -1,75 +1,100 @@
+* { box-sizing: border-box; }
 body {
     margin: 0;
-    width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background-image: url("imagens/fundo.png");
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 28px 16px;
+    font-family: Arial, sans-serif;
+    color: #536a7b;
 }
-
 .formulario {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 30px;
-    border-radius: 15px;
-    width: 300px;
+    width: min(100%, 550px);
+    background: rgba(255, 255, 255, 0.94);
+    padding: clamp(22px, 5vw, 36px);
+    border-radius: 16px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, .12);
 }
-
-input[type="text"]{
-    width: 90%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+h1 { margin: 0 0 16px; text-align: center; font-size: 28px; }
+.convite { margin: 0 0 26px; text-align: justify; line-height: 1.55; color: #56646c; }
+.campo { margin-bottom: 20px; }
+.campo > label, .texto-campo label, .caixa-presenca legend {
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color: #536a7b;
 }
-
-p{
-    text-align: justify;
-}
-
-.opcaoSim{
-    display: flex;
-    margin-bottom: 3px;
-
-}
-
-.opcaoNao{
-    display: flex;
-    margin-bottom: 15px;
-}
-
-.escondido {
-    display:none;
-}
-.acompanhantes {
-    margin-left: 30px;
-    margin-bottom: 5px;
-    align-items: center;
-}
-
-input[type="number"]{
-    margin-left: 10px;
-    width: 50px;
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button[type="submit"]{
+input[type="text"] {
+    margin-top: 10px;
     width: 100%;
-    padding: 10px;
+    padding: 14px 15px;
+    border: 1px solid #d1d7db;
+    border-radius: 9px;
+    background: #fff;
+    font-size: 15px;
+}
+.caixa-presenca {
+    border: 1px solid #d5dadd;
+    border-radius: 10px;
+    padding: 16px;
+    min-width: 0;
+}
+.caixa-presenca legend { padding: 0 6px; }
+.opcoes-presenca { display: flex; gap: 14px; flex-wrap: wrap; }
+.opcao {
+    display: flex;
+    gap: 9px;
+    align-items: center;
+    padding: 13px 19px;
+    border: 1px solid #d5dadd;
+    border-radius: 9px;
+    cursor: pointer;
+    text-transform: lowercase;
+    color: #536a7b;
+}
+.opcao:has(input:checked) { border-color: #64869e; background: #f1f6f9; }
+.opcao input { accent-color: #1684db; }
+.escondido { display: none; }
+.campo-quantidade {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px;
+    border: 1px solid #d5dadd;
+    border-radius: 10px;
+}
+.texto-campo { min-width: 0; }
+.texto-campo small { display: block; margin-top: 6px; color: #8b9298; }
+select {
+    padding: 10px 12px;
+    min-width: 76px;
+    border: 1px solid #d5dadd;
+    border-radius: 9px;
+    background: white;
+    color: #444;
+    font-size: 16px;
+}
+button[type="submit"] {
+    width: 100%;
+    padding: 14px;
     background-color: #333733;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 16px;
 }
-
+button[type="submit"]:disabled { opacity: .65; cursor: wait; }
 @media (max-width: 700px) {
-    body {
-        background-image: url("imagens/fundoMobile.png");
-    }
+    body { background-image: url("imagens/fundoMobile.png"); }
+}
+@media (max-width: 390px) {
+    .campo-quantidade { padding: 13px; gap: 8px; }
+    .texto-campo label { font-size: 14px; }
 }

@@ -1,25 +1,31 @@
+
 const opcaoSim = document.getElementById("sim");
 const opcaoNao = document.getElementById("nao");
 
-const areaAcompanhantes =
-    document.getElementById("area-acompanhantes");
+const areaQuantidades =
+    document.getElementById("area-quantidades");
 
-const acompanhantes =
-    document.getElementById("acompanhantes");
-
+const adultos = document.getElementById("adultos");
+const criancas = document.getElementById("criancas");
 
 opcaoSim.addEventListener("change", function () {
 
-    areaAcompanhantes.classList.remove("escondido");
+    areaQuantidades.classList.remove("escondido");
+
+    adultos.disabled = false;
+    criancas.disabled = false;
 
 });
 
-
 opcaoNao.addEventListener("change", function () {
 
-    areaAcompanhantes.classList.add("escondido");
+    areaQuantidades.classList.add("escondido");
 
-    acompanhantes.value = "";
+    adultos.value = "1";
+    criancas.value = "0";
+
+    adultos.disabled = true;
+    criancas.disabled = true;
 
 });
 
@@ -29,8 +35,7 @@ let enviando = false;
 const formulario =
     document.getElementById("form-confirmacao");
 
-
-    formulario.addEventListener("submit", async function (event) {
+formulario.addEventListener("submit", async function (event) {
 
     event.preventDefault();
 
@@ -44,6 +49,12 @@ const formulario =
     botaoEnviar.textContent = "Enviando...";
 
     const dados = new FormData(formulario);
+
+    // Envia zero adultos e zero crianças quando não comparecer
+    if (opcaoNao.checked) {
+        dados.set("adultos", "0");
+        dados.set("criancas", "0");
+    }
 
     try {
 
@@ -59,7 +70,7 @@ const formulario =
             throw new Error("Erro na requisição");
         }
 
-        alert("Resposta enviada com sucesso! Tem q manter segredo hein, se não... 💀");
+        alert("Resposta enviada com sucesso! Tem que manter segredo ein... se não... 💀");
         location.reload();
 
     } catch (error) {
@@ -67,10 +78,9 @@ const formulario =
         console.error("Erro ao enviar a resposta:", error);
         alert("Ocorreu um erro ao enviar a resposta. Por favor, tente novamente.");
 
-        // Libera novamente caso dê erro
         enviando = false;
         botaoEnviar.disabled = false;
-        botaoEnviar.textContent = "Enviar";
+        botaoEnviar.textContent = "Confirmar";
     }
 
 });
