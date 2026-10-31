@@ -48,7 +48,7 @@ formulario.addEventListener("submit", async function (event) {
   }
 
   try {
-    const resposta = await fetch("../api/confirmar", {
+    const resposta = await fetch("/api/confirmar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
